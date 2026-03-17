@@ -1,6 +1,18 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
+# Zephyr removed the kscan subsystem; provide the Kconfig symbols locally.
+menuconfig KSCAN
+	bool "Keyboard Scan Drivers [ZMK Compat]"
+
+if KSCAN
+
+config KSCAN_INIT_PRIORITY
+	int "Keyboard scan driver init priority"
+	default 90
+
+endif # KSCAN
+
 DT_COMPAT_ZMK_KSCAN_COMPOSITE := zmk,kscan-composite
 DT_COMPAT_ZMK_KSCAN_GPIO_DEMUX := zmk,kscan-gpio-demux
 DT_COMPAT_ZMK_KSCAN_GPIO_DIRECT := zmk,kscan-gpio-direct

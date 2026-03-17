@@ -4,11 +4,14 @@ manifest:
       url-base: https://github.com/zephyrproject-rtos
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: abcdaaa1111
+      url-base: https://github.com/abcdaaa1111
+    - name: cherry-embedded
+      url-base: https://github.com/cherry-embedded
   projects:
     - name: zephyr
-      remote: zmkfirmware
-      revision: v4.1.0+zmk-fixes
-      clone-depth: 1
+      remote: zephyrproject-rtos
+      revision: main
       import:
         name-blocklist:
           - ci-tools
@@ -42,6 +45,18 @@ manifest:
       revision: 6cb4c283e76209d59c45fbcb218800cd19e9339d
       path: modules/msgs/zmk-studio-messages
       remote: zmkfirmware
+    - name: hal_sifli
+      revision: 86fa0e9433fda1a760e0077c19b8407ecceea2f9
+      path: modules/hal/sifli
+      remote: zephyrproject-rtos
+      groups:
+        - hal
+    - name: CherryUSB
+      revision: master
+      remote: abcdaaa1111
+      path: modules/lib/usb/CherryUSB
+      groups:
+        - usb
   group-filter: [+optional]
   self:
     west-commands: scripts/west-commands.yml

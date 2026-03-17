@@ -1,0 +1,9 @@
+# Copyright (c) 2025
+# SPDX-License-Identifier: MIT
+
+if SHIELD_SF32LB52_TEST
+
+config ZMK_KEYBOARD_NAME
+	default "SF32LB52 Test"
+
+endif

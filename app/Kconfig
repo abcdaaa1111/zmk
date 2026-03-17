@@ -224,7 +224,7 @@ config BT_PERIPHERAL_PREF_MAX_INT
     default 12
 
 config BT_PERIPHERAL_PREF_LATENCY
-    default 30
+    default 0
 
 config BT_PERIPHERAL_PREF_TIMEOUT
     default 400
@@ -653,6 +653,7 @@ endmenu # ZMK
 if SOC_FAMILY_NORDIC_NRF
 
 config NRF_SOC_VALIDATE_HEADERS_DISABLED
+    bool 
     default y
 
 endif

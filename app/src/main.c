@@ -18,10 +18,10 @@ LOG_MODULE_REGISTER(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <lvgl.h>
 
 #endif
-
+#include <stdio.h>
 int main(void) {
     LOG_INF("Welcome to ZMK!\n");
-
+    printf("Welcome to ZMK!\n");
 #if IS_ENABLED(CONFIG_SETTINGS)
     settings_subsys_init();
     settings_load();
@@ -40,6 +40,6 @@ int main(void) {
 #endif
 
 #endif /* CONFIG_ZMK_DISPLAY */
-
+    printf("Hi!\n");
     return 0;
 }

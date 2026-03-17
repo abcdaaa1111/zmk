@@ -29,8 +29,6 @@ uint8_t zmk_battery_state_of_charge(void) { return last_state_of_charge; }
 #if DT_HAS_CHOSEN(zmk_battery)
 static const struct device *const battery = DEVICE_DT_GET(DT_CHOSEN(zmk_battery));
 #else
-#warning                                                                                           \
-    "Using a node labeled BATTERY for the battery sensor is deprecated. Set a zmk,battery chosen node instead. (Ignore this if you don't have a battery sensor.)"
 static const struct device *battery;
 #endif
 

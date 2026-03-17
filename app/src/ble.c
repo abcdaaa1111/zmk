@@ -54,7 +54,8 @@ enum advertising_type {
 } advertising_status;
 
 #define CURR_ADV(adv) (adv << 4)
-
+#define BT_LE_ADV_OPT_USE_NAME 0
+#define BT_LE_ADV_OPT_FORCE_NAME_IN_AD 0
 #define ZMK_ADV_CONN_NAME                                                                          \
     BT_LE_ADV_PARAM(BT_LE_ADV_OPT_CONN | BT_LE_ADV_OPT_USE_NAME | BT_LE_ADV_OPT_FORCE_NAME_IN_AD,  \
                     BT_GAP_ADV_FAST_INT_MIN_2, BT_GAP_ADV_FAST_INT_MAX_2, NULL)

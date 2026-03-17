@@ -1,9 +1,8 @@
-# Copyright (c) 2025 Core Devices LLC
-# SPDX-License-Identifier: Apache-2.0
+# Copyright (c) 2025
+# SPDX-License-Identifier: MIT
 
 board:
-  name: sf32lb52_devkit_lcd
-  full_name: SF32LB52-DevKit-LCD
-  vendor: sifli
-  socs:
-    - name: sf32lb525uc6
+  extend: sf32lb52_devkit_lcd
+  variants:
+    - name: zmk
+      qualifier: sf32lb525uc6
