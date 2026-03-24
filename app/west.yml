@@ -10,7 +10,7 @@ manifest:
       url-base: https://github.com/cherry-embedded
   projects:
     - name: zephyr
-      remote: zephyrproject-rtos
+      remote: abcdaaa1111
       revision: main
       import:
         name-blocklist:
