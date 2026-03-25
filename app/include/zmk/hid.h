@@ -8,8 +8,12 @@
 
 #include <zephyr/sys/util.h>
 
+#if IS_ENABLED(CONFIG_ZMK_USB)
 #include <zephyr/usb/usb_device.h>
 #include <zephyr/usb/class/usb_hid.h>
+#else
+#include <zephyr/usb/class/hid.h>
+#endif
 
 #include <zmk/keys.h>
 #if IS_ENABLED(CONFIG_ZMK_POINTING)

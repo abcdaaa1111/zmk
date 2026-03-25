@@ -7,7 +7,10 @@
 #pragma once
 
 #include <zephyr/kernel.h>
+
+#if IS_ENABLED(CONFIG_ZMK_USB)
 #include <zephyr/usb/usb_device.h>
+#endif
 
 #include <zmk/event_manager.h>
 #include <zmk/usb.h>

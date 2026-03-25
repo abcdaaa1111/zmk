@@ -118,17 +118,34 @@ config ZMK_HID_SEPARATE_MOD_RELEASE_REPORT
 
 menu "Output Types"
 
-config ZMK_USB
-    bool "USB"
+# Hidden config: set when any USB HID output is available
+config ZMK_USB_HID
+    bool
+    default y if ZMK_USB || ZMK_USB_CHERRYUSB
+
+choice ZMK_USB_STACK
+    prompt "USB Stack"
+    optional
     depends on (!ZMK_SPLIT || (ZMK_SPLIT && ZMK_SPLIT_ROLE_CENTRAL))
+
+config ZMK_USB
+    bool "Zephyr USB Stack"
     select USB
     select USB_DEVICE_STACK
     select USB_DEVICE_HID
 
+config ZMK_USB_CHERRYUSB
+    bool "CherryUSB Stack"
+    select CHERRYUSB
+    select CHERRYUSB_DEVICE
+    select CHERRYUSB_DEVICE_HID
+
+endchoice
+
 config ZMK_USB_BOOT
     bool "USB Boot Protocol Support"
-    depends on ZMK_USB
-    select USB_HID_BOOT_PROTOCOL
+    depends on ZMK_USB_HID
+    select USB_HID_BOOT_PROTOCOL if ZMK_USB
 
 config USB_DEVICE_INITIALIZE_AT_BOOT
     default n
@@ -142,6 +159,14 @@ config USB_HID_POLL_INTERVAL_MS
     default 1
 
 endif # ZMK_USB
+
+if ZMK_USB_CHERRYUSB
+
+config CHERRYUSB_DEV_BASE_ADDR
+    hex "CherryUSB device controller base address"
+    default 0x0
+
+endif # ZMK_USB_CHERRYUSB
 
 menuconfig ZMK_BLE
     bool "BLE (HID over GATT)"
@@ -477,7 +502,7 @@ rsource "src/boot/Kconfig"
 
 menu "Initialization Priorities"
 
-if USB_DEVICE_STACK
+if ZMK_USB_HID
 
 config ZMK_USB_INIT_PRIORITY
     int "USB Init Priority"
@@ -487,7 +512,7 @@ config ZMK_USB_HID_INIT_PRIORITY
     int "USB HID Init Priority"
     default 95
 
-endif # USB
+endif # ZMK_USB_HID
 
 if ZMK_BLE || ZMK_SPLIT_BLE
 

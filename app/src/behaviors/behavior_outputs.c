@@ -28,13 +28,13 @@ static const struct behavior_parameter_value_metadata std_values[] = {
         .display_name = "Toggle Outputs",
         .type = BEHAVIOR_PARAMETER_VALUE_TYPE_VALUE,
     },
-#if IS_ENABLED(CONFIG_ZMK_USB)
+#if IS_ENABLED(CONFIG_ZMK_USB_HID)
     {
         .value = OUT_USB,
         .display_name = "USB Output",
         .type = BEHAVIOR_PARAMETER_VALUE_TYPE_VALUE,
     },
-#endif // IS_ENABLED(CONFIG_ZMK_USB)
+#endif // IS_ENABLED(CONFIG_ZMK_USB_HID)
 #if IS_ENABLED(CONFIG_ZMK_BLE)
     {
         .value = OUT_BLE,
