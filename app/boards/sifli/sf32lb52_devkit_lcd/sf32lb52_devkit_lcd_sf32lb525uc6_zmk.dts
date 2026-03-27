@@ -29,6 +29,7 @@
 		zephyr,crc = &crc;
 		zephyr,entropy = &trng;
 		zephyr,bt-hci = &mailbox;
+		zephyr,settings-partition = &storage_partition;
 	};
 
 	buttons {
@@ -112,7 +113,7 @@
 	status = "okay";
 
 	py25q128ha: flash@0 {
-		compatible = "puya,py25q128ha", "jedec,qspi-nor";
+		compatible = "puya,py25q128ha", "jedec,qspi-nor", "soc-nv-flash";
 		reg = <0x0>;
 		size = <DT_SIZE_M(128)>;
 		quad-enable-requirements = "S2B1v1";
@@ -129,7 +130,12 @@
 
 			code: partition@10000 {
 				label = "code";
-				reg = <0x10000 DT_SIZE_K(16320)>;
+				reg = <0x10000 DT_SIZE_K(16064)>;   /* 缩小 256KB 给 storage */
+			};
+
+			storage_partition: partition@fb0000 {
+				label = "storage";
+				reg = <0xfb0000 DT_SIZE_K(256)>;    /* 256KB for NVS */
 			};
 		};
 	};
