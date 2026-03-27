@@ -52,7 +52,7 @@ manifest:
       groups:
         - hal
     - name: CherryUSB
-      revision: master
+      revision: zephyr-adapt
       remote: abcdaaa1111
       path: modules/lib/usb/CherryUSB
       groups:
