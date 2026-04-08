@@ -1,0 +1,9 @@
+if SHIELD_SF32LB52_ZMKSTUDIO_TEST
+
+config ZMK_KEYBOARD_NAME
+	default "SF32LB52 Studio"
+
+config ZMK_STUDIO
+	default y
+
+endif
