@@ -1,0 +1,5 @@
+config SHIELD_SF32LB52_SPLIT_TEST_LEFT
+	def_bool $(shields_list_contains,sf32lb52_split_test_left)
+
+config SHIELD_SF32LB52_SPLIT_TEST_RIGHT
+	def_bool $(shields_list_contains,sf32lb52_split_test_right)

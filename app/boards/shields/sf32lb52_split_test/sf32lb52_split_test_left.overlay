@@ -1,0 +1,23 @@
+#include "sf32lb52_split_test.dtsi"
+
+&pinctrl {
+	usb_default: usb_default {
+		group1 {
+			pinmux = <PA35_ANALOG>, <PA36_ANALOG>;
+			input-enable;
+		};
+	};
+};
+
+&kscan_direct {
+	input-gpios =
+		<&gpioa_32_44 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+		<&gpioa_00_31 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+};
+
+/ {
+	zephyr,user {
+		pinctrl-0 = <&usb_default>;
+		pinctrl-names = "default";
+	};
+};

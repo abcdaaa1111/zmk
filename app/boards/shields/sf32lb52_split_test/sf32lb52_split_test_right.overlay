@@ -1,0 +1,11 @@
+#include "sf32lb52_split_test.dtsi"
+
+&default_transform {
+	col-offset = <2>;
+};
+
+&kscan_direct {
+	input-gpios =
+		<&gpioa_32_44 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+		<&gpioa_32_44 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+};
