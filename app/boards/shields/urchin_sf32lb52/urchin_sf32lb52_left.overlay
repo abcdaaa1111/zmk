@@ -1,0 +1,39 @@
+#include "urchin_sf32lb52.dtsi"
+
+&pinctrl {
+	usb_default: usb_default {
+		group1 {
+			pinmux = <PA35_ANALOG>, <PA36_ANALOG>;
+			input-enable;
+		};
+	};
+};
+
+&kscan0 {
+	col-gpios
+		= <&gpioa_32_44 8 (GPIO_ACTIVE_HIGH)>           // COL0 PA40
+		, <&gpioa_32_44 9 (GPIO_ACTIVE_HIGH)>           // COL1 PA41
+		, <&gpioa_32_44 6 (GPIO_ACTIVE_HIGH)>           // COL2 PA38
+		, <&gpioa_32_44 5 (GPIO_ACTIVE_HIGH)>           // COL3 PA37
+		, <&gpioa_32_44 7 (GPIO_ACTIVE_HIGH)>           // COL4 PA39
+		;
+	row-gpios
+		= <&gpioa_00_31 25 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // ROW0 PA25
+		, <&gpioa_00_31 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // ROW1 PA28
+		, <&gpioa_00_31 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // ROW2 PA29
+		, <&gpioa_00_31 30 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // ROW3 PA30
+		;
+};
+
+&kscan_direct {
+	input-gpios =
+		<&gpioa_32_44 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+		<&gpioa_00_31 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+};
+
+/ {
+	zephyr,user {
+		pinctrl-0 = <&usb_default>;
+		pinctrl-names = "default";
+	};
+};

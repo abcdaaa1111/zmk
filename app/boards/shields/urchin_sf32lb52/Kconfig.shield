@@ -1,0 +1,5 @@
+config SHIELD_URCHIN_SF32LB52_LEFT
+	def_bool $(shields_list_contains,urchin_sf32lb52_left)
+
+config SHIELD_URCHIN_SF32LB52_RIGHT
+	def_bool $(shields_list_contains,urchin_sf32lb52_right)

@@ -1,0 +1,27 @@
+#include "urchin_sf32lb52.dtsi"
+
+&default_transform {
+	col-offset = <5>;
+};
+
+&kscan0 {
+	col-gpios
+		= <&gpioa_00_31 24 (GPIO_ACTIVE_HIGH)>           // COL0 PA24
+		, <&gpioa_00_31 25 (GPIO_ACTIVE_HIGH)>           // COL1 PA25
+		, <&gpioa_00_31 28 (GPIO_ACTIVE_HIGH)>           // COL2 PA28
+		, <&gpioa_00_31 29 (GPIO_ACTIVE_HIGH)>           // COL3 PA29
+		, <&gpioa_00_31 30 (GPIO_ACTIVE_HIGH)>           // COL4 PA30
+		;
+	row-gpios
+		= <&gpioa_32_44 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // ROW0 PA41
+		, <&gpioa_32_44 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // ROW1 PA38
+		, <&gpioa_32_44 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // ROW2 PA37
+		, <&gpioa_32_44 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // ROW3 PA39
+		;
+};
+
+&kscan_direct {
+	input-gpios =
+		<&gpioa_32_44 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+		<&gpioa_00_31 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+};
