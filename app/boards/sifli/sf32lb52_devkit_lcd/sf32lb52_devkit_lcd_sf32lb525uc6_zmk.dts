@@ -43,7 +43,7 @@
 
 		key2: key2 {
 			label = "KEY2";
-			gpios = <&gpioa_00_31 11 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpioa_32_44 1 GPIO_ACTIVE_HIGH>;
 			zephyr,code = <INPUT_KEY_2>;
 		};
 	};
